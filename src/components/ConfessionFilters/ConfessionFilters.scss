@@ -1,0 +1,58 @@
+.confession-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  padding: 18px 22px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.confession-filters span,
+.confession-filters h3,
+.confession-filters strong {
+  margin: 0;
+}
+
+.confession-filters span {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.confession-filters h3 {
+  margin-top: 6px;
+  font-size: 1.15rem;
+}
+
+.confession-filters__controls {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.confession-filters__controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.confession-filters__controls input,
+.confession-filters__controls button {
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 760px) {
+  .confession-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
