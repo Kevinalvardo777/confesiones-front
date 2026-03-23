@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Confessions Front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend React + Vite para la plataforma de confesiones, preparado para trabajar contra el backend NestJS en `../confessions-back`.
 
-Currently, two official plugins are available:
+## Ambientes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El proyecto soporta estos modos:
 
-## React Compiler
+- `local`
+- `dev`
+- `cert`
+- `prod`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Copia el archivo de ambiente que necesites:
 
-## Expanding the ESLint configuration
+- `.env.local.example` a `.env.local`
+- `.env.dev.example` a `.env.dev`
+- `.env.cert.example` a `.env.cert`
+- `.env.prod.example` a `.env.prod`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Variables principales
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `VITE_APP_NAME`: nombre visible de la app
+- `VITE_API_BASE_URL`: base URL de la API
+- `VITE_USE_MOCKS`: activa o desactiva los mocks
+- `VITE_MOCK_DELAY_MS`: demora artificial de mocks
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Desarrollo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Instala dependencias:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Inicia el frontend en el ambiente que necesites:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev:local
+npm run dev:dev
+npm run dev:cert
 ```
+
+Nota: en Vite `local` no puede usarse como nombre de `mode`, asi que `dev:local` y `build:local` usan la carga normal de `.env.local`.
+
+Si quieres usar la configuracion por defecto de Vite, tambien puedes correr:
+
+```bash
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build:local
+npm run build:dev
+npm run build:cert
+npm run build:prod
+```
+
+## Prueba real contra el backend
+
+Para guardar datos reales desde el frontend:
+
+1. Levanta `postgres` y `redis` en `confessions-back`.
+2. Levanta el backend con el ambiente correspondiente.
+3. Configura en este frontend `VITE_USE_MOCKS=false`.
+4. Asegura que `VITE_API_BASE_URL` apunte al backend correcto.
+
+Ejemplo local:
+
+```env
+VITE_USE_MOCKS=false
+VITE_API_BASE_URL=http://localhost:3000/api/v1
+```
+
+## CI
+
+El repositorio incluye un workflow de GitHub Actions en `.github/workflows/ci.yml` que valida frontend y backend en cada `push` y `pull request`.
+
+## Deploy
+
+El repositorio incluye un workflow de despliegue en `.github/workflows/deploy.yml`.
+La guÃ­a de configuraciÃ³n de secretos, ramas y servicios estÃ¡ en `docs/deploy.md`.

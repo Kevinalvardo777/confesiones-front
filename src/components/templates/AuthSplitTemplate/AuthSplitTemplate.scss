@@ -1,0 +1,15 @@
+.template-auth-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 24px;
+}
+
+.template-auth-split__intro {
+  min-height: 100%;
+}
+
+@media (max-width: 860px) {
+  .template-auth-split {
+    grid-template-columns: 1fr;
+  }
+}

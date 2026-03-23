@@ -1,0 +1,186 @@
+.confession-composer {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 20px;
+  padding: 24px;
+}
+
+.confession-composer__copy h2 {
+  margin: 10px 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.confession-composer__copy p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 42ch;
+}
+
+.confession-composer__form {
+  display: grid;
+  gap: 14px;
+}
+
+.confession-composer__counter {
+  margin: 0;
+}
+
+.confession-filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto auto;
+  gap: 18px;
+  align-items: end;
+  padding: 18px 22px;
+}
+
+.confession-filters h3,
+.confession-filters strong {
+  margin: 0;
+}
+
+.confession-filters__intro {
+  display: grid;
+  gap: 6px;
+}
+
+.confession-filters__controls {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.confession-filters__controls .molecule-field {
+  min-width: 170px;
+}
+
+.confession-filters__control {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.04);
+  appearance: none;
+}
+
+.confession-filters__control:focus {
+  border-color: rgba(255, 179, 71, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.08);
+  outline: none;
+}
+
+.confession-filters__count {
+  justify-self: end;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.confession-feed {
+  display: grid;
+  gap: 16px;
+}
+
+.confession-card {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.confession-card__meta,
+.confession-card__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.confession-card__meta {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.confession-card h3,
+.confession-card p {
+  margin: 0;
+}
+
+.confession-card p {
+  color: #eef4fb;
+  font-size: 1.02rem;
+}
+
+.confession-card__stars {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.confession-card__stars button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 179, 71, 0.26);
+  border-radius: 50%;
+  color: var(--accent);
+  background: rgba(255, 179, 71, 0.08);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.confession-card__stars button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 179, 71, 0.18);
+}
+
+.confession-card__detail-link {
+  color: var(--accent);
+}
+
+.detail-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+  gap: 20px;
+}
+
+.detail-sidebar {
+  display: grid;
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .confession-composer,
+  .detail-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .confession-filters,
+  .confession-card__footer {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .confession-filters__controls {
+    justify-content: stretch;
+  }
+
+  .confession-filters__controls .molecule-field {
+    min-width: 100%;
+  }
+
+  .confession-filters__count {
+    justify-self: start;
+  }
+}

@@ -1,0 +1,22 @@
+.atom-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-main);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.04);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.atom-input:focus {
+  border-color: rgba(255, 179, 71, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.08);
+  outline: none;
+}

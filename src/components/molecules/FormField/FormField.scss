@@ -1,0 +1,23 @@
+.molecule-field {
+  display: grid;
+  gap: 8px;
+}
+
+.molecule-field__label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.molecule-field__hint,
+.molecule-field__error {
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.molecule-field__hint {
+  color: var(--text-muted);
+}
+
+.molecule-field__error {
+  color: #ffb4af;
+}

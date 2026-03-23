@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Confesiones EC</title>
+  <desc id="desc">Tarjeta social por defecto para Confesiones EC</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#112031" />
+      <stop offset="55%" stop-color="#1f4e5f" />
+      <stop offset="100%" stop-color="#e7a33e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="36" />
+  <circle cx="990" cy="120" r="90" fill="#f7d08a" fill-opacity="0.28" />
+  <circle cx="1060" cy="520" r="120" fill="#ffffff" fill-opacity="0.08" />
+  <g fill="#f9fafb">
+    <text x="90" y="220" font-size="42" font-family="Georgia, serif" opacity="0.85">Historias por comunidad</text>
+    <text x="90" y="330" font-size="94" font-weight="700" font-family="Arial, sans-serif">Confesiones EC</text>
+    <text x="90" y="410" font-size="34" font-family="Arial, sans-serif" opacity="0.92">
+      Explora comunidades de Ecuador y comparte confesiones anonimas.
+    </text>
+  </g>
+</svg>

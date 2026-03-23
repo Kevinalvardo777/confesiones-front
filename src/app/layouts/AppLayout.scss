@@ -1,0 +1,131 @@
+.app-layout {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding: 24px 0 64px;
+}
+
+.app-layout__skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 20;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #0f1724;
+  background: #f7f1e7;
+}
+
+.app-layout__skip-link:focus {
+  top: 12px;
+}
+
+.app-layout__hero {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(145deg, rgba(255, 179, 71, 0.1), transparent 35%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.app-layout__hero--compact {
+  padding-bottom: 20px;
+}
+
+.app-layout__hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -80px -80px auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 211, 137, 0.35), transparent 68%);
+}
+
+.app-layout__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-layout__brand {
+  display: grid;
+  gap: 4px;
+}
+
+.app-layout__brand strong {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.app-layout__brand span,
+.app-layout__user {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.app-layout__nav-links,
+.app-layout__actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-layout__nav-link {
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.app-layout__nav-link:hover,
+.app-layout__nav-link--active {
+  color: var(--text-main);
+  border-color: rgba(255, 179, 71, 0.32);
+  background: rgba(255, 179, 71, 0.12);
+  transform: translateY(-1px);
+}
+
+.app-layout .organism-hero-banner {
+  padding-top: 40px;
+}
+
+.app-layout__content {
+  padding-top: 28px;
+}
+
+.app-layout__hero--compact::after {
+  width: 140px;
+  height: 140px;
+  inset: auto -42px -42px auto;
+  opacity: 0.65;
+}
+
+@media (max-width: 720px) {
+  .app-layout {
+    width: min(100% - 20px, 1180px);
+    padding-top: 12px;
+  }
+
+  .app-layout__hero {
+    padding: 18px;
+  }
+
+  .app-layout .organism-hero-banner {
+    padding-top: 22px;
+  }
+
+  .app-layout__hero--compact {
+    padding-bottom: 18px;
+  }
+}

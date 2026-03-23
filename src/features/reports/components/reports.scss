@@ -1,0 +1,29 @@
+.report-form {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.report-form h3 {
+  margin: 0;
+}
+
+.moderation-list {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+}
+
+.moderation-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.moderation-card p,
+.moderation-card strong {
+  margin: 0;
+}

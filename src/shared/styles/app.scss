@@ -1,0 +1,42 @@
+.app-root {
+  min-height: 100vh;
+}
+
+.page-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.surface-panel {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.page-header {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+}
+
+.page-header__eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.page-header__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.96;
+}
+
+.page-header__description {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 64ch;
+}

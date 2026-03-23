@@ -1,0 +1,41 @@
+.comments-form,
+.comments-panel {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.comments-form h3,
+.comments-panel h3 {
+  margin: 0;
+}
+
+.comments-panel__list {
+  display: grid;
+  gap: 12px;
+}
+
+.comment-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comment-card--reply {
+  margin-left: 18px;
+}
+
+.comment-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.comment-card p {
+  margin: 0;
+}

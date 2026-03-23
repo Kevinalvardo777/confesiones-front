@@ -1,0 +1,83 @@
+.feedback-card {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.feedback-card--empty {
+  text-align: center;
+}
+
+.feedback-card--error {
+  border-color: rgba(255, 123, 114, 0.28);
+  background: rgba(255, 123, 114, 0.09);
+}
+
+.feedback-card h3,
+.feedback-card p {
+  margin: 0;
+}
+
+.feedback-card p {
+  color: var(--text-muted);
+}
+
+.feedback-card__action,
+.feedback-card__button {
+  justify-self: center;
+}
+
+.feedback-card__button {
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #0f1724;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  font-weight: 700;
+}
+
+.skeleton-block {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.skeleton-block span {
+  display: block;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.08));
+  background-size: 240px 100%;
+  animation: skeleton 1.4s linear infinite;
+}
+
+.skeleton-block span:nth-child(2n) {
+  width: 78%;
+}
+
+.skeleton-block span:last-child {
+  width: 62%;
+}
+
+.skeleton-block--compact {
+  padding: 14px;
+}
+
+@keyframes skeleton {
+  from {
+    background-position: -240px 0;
+  }
+
+  to {
+    background-position: 240px 0;
+  }
+}
