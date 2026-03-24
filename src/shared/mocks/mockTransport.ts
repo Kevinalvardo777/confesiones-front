@@ -26,6 +26,18 @@ function createId(prefix: string) {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`
 }
 
+function createSlug(value: string, suffix: string) {
+  const normalized = value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40)
+
+  return `${normalized || 'confesion'}-${suffix}`
+}
+
 function getSessionFromHeaders(headers: Record<string, string> | undefined, db: MockDatabase) {
   const token = headers?.Authorization?.replace('Bearer ', '')
   if (!token) {
@@ -282,8 +294,10 @@ export async function mockRequest<T>(path: string, options: RequestOptions = {})
   }
 
   if (pathname.startsWith('/confessions/') && !pathname.endsWith('/vote') && method === 'GET') {
-    const confessionId = pathname.split('/')[2]
-    const record = db.confessions.find((item) => item.id === confessionId)
+    const confessionIdentifier = pathname.split('/')[2]
+    const record = db.confessions.find(
+      (item) => item.id === confessionIdentifier || item.slug === confessionIdentifier,
+    )
 
     if (!record) {
       throw new AppError({
@@ -302,8 +316,10 @@ export async function mockRequest<T>(path: string, options: RequestOptions = {})
   if (pathname === '/confessions' && method === 'POST') {
     requireSession(options.headers, db)
     const body = options.body as { sectionId: string; alias?: string; content: string }
+    const id = createId('conf')
     const record = {
-      id: createId('conf'),
+      id,
+      slug: createSlug(body.alias || body.content, id.slice(-4)),
       sectionId: body.sectionId as MockDatabase['sections'][number]['id'],
       alias: sanitizeText(body.alias || 'Anonimo') || 'Anonimo',
       content: sanitizeText(body.content),

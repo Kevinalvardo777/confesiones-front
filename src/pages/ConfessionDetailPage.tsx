@@ -21,18 +21,18 @@ import '@/features/reports/components/reports.scss'
 import '@/features/confessions/components/confessions.scss'
 
 function ConfessionDetailPage() {
-  const { confessionId = '' } = useParams()
+  const { confessionSlug = '' } = useParams()
   const { isAuthenticated } = useAuth()
   const { showToast } = useToast()
-  const confessionQuery = useConfessionDetailQuery(confessionId)
+  const confessionQuery = useConfessionDetailQuery(confessionSlug)
   usePageMeta(
     confessionQuery.data ? `Confesion en ${confessionQuery.data.communityId}` : 'Detalle de confesion',
     'Consulta una confesion, sus comentarios y las opciones para interactuar con ella.',
   )
-  const commentsQuery = useCommentsQuery(confessionId)
+  const commentsQuery = useCommentsQuery(confessionQuery.data?.id ?? '')
   const communitiesQuery = useCommunitiesQuery()
   const voteMutation = useVoteConfessionMutation()
-  const commentMutation = useCreateCommentMutation(confessionId)
+  const commentMutation = useCreateCommentMutation(confessionSlug)
   const reportMutation = useCreateReportMutation()
 
   const sectionNames = useMemo(
@@ -62,7 +62,7 @@ function ConfessionDetailPage() {
         <ConfessionCard
           confession={confession}
           sectionName={sectionNames[confession.communityId] ?? confession.communityId}
-          detailHref={appRoutes.confessionDetail(confession.communityId, confession.id)}
+          detailHref={appRoutes.confessionDetail(confession.communityId, confession.slug)}
           votePending={voteMutation.isPending}
           onVote={(currentConfessionId, stars) => {
             if (!isAuthenticated) {
@@ -99,7 +99,7 @@ function ConfessionDetailPage() {
             }
 
             await commentMutation.mutateAsync({
-              confessionId,
+              confessionId: confession.id,
               authorName: values.authorName,
               content: values.content,
             })
@@ -136,7 +136,7 @@ function ConfessionDetailPage() {
 
             await reportMutation.mutateAsync({
               targetType: 'confession',
-              targetId: confessionId,
+              targetId: confession.id,
               reason: values.reason,
               details: values.details,
             })

@@ -22,7 +22,7 @@ function AppRouter() {
             <Route path={appRoutes.about} element={<AboutPage />} />
           <Route path={appRoutes.ranking} element={<RankingPage />} />
           <Route path="/comunidad/:communityId" element={<SectionPage />} />
-          <Route path="/comunidad/:communityId/confesiones/:confessionId" element={<ConfessionDetailPage />} />
+          <Route path="/comunidad/:communityId/confesiones/:confessionSlug" element={<ConfessionDetailPage />} />
           <Route path={appRoutes.login} element={<LoginPage />} />
           <Route path={appRoutes.register} element={<RegisterPage />} />
           <Route element={<ProtectedRoute roles={['moderator', 'admin']} />}>

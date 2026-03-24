@@ -2,6 +2,7 @@ export type ConfessionSort = 'recent' | 'top'
 
 export interface Confession {
   id: string
+  slug: string
   communityId: string
   alias: string
   content: string

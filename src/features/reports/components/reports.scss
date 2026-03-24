@@ -27,3 +27,15 @@
 .moderation-card strong {
   margin: 0;
 }
+
+@media (max-width: 760px) {
+  .report-form,
+  .moderation-list {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .report-form .atom-button {
+    width: 100%;
+  }
+}

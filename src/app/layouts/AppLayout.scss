@@ -79,6 +79,7 @@
   padding: 10px 14px;
   border-radius: 999px;
   color: var(--text-muted);
+  white-space: nowrap;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid transparent;
   transition:
@@ -111,6 +112,10 @@
   opacity: 0.65;
 }
 
+.app-layout__bottom-nav {
+  display: none;
+}
+
 @media (max-width: 720px) {
   .app-layout {
     width: min(100% - 20px, 1180px);
@@ -127,5 +132,96 @@
 
   .app-layout__hero--compact {
     padding-bottom: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-layout__nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .app-layout__nav-links {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .app-layout__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-layout {
+    width: min(100% - 14px, 1180px);
+    padding-top: 8px;
+    padding-bottom: 92px;
+  }
+
+  .app-layout__hero {
+    padding: 14px;
+  }
+
+  .app-layout__brand strong {
+    font-size: 0.92rem;
+  }
+
+  .app-layout__brand span,
+  .app-layout__user {
+    font-size: 0.82rem;
+  }
+
+  .app-layout__nav-link {
+    padding: 9px 12px;
+    font-size: 0.92rem;
+  }
+
+  .app-layout__actions {
+    gap: 8px;
+  }
+
+  .app-layout__actions .atom-button {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .app-layout__bottom-nav {
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+      var(--surface-strong);
+  }
+
+  .app-layout__bottom-link {
+    min-height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    padding: 8px 10px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+  }
+
+  .app-layout__bottom-link--active {
+    color: var(--text-main);
+    border-color: rgba(255, 179, 71, 0.38);
+    background: rgba(255, 179, 71, 0.14);
   }
 }

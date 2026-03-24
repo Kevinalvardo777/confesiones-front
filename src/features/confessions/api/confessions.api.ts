@@ -29,8 +29,8 @@ export const confessionsApi = {
 
     return response.data
   },
-  async detail(confessionId: string) {
-    const response = await httpClient.get<Confession>(`/confessions/${confessionId}`, { auth: false })
+  async detail(confessionIdentifier: string) {
+    const response = await httpClient.get<Confession>(`/confessions/${confessionIdentifier}`, { auth: false })
     return response.data
   },
   async create(payload: CreateConfessionPayload) {

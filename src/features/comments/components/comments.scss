@@ -39,3 +39,30 @@
 .comment-card p {
   margin: 0;
 }
+
+@media (max-width: 760px) {
+  .comments-form,
+  .comments-panel {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .comment-card {
+    padding: 14px;
+  }
+
+  .comment-card__meta {
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+  }
+
+  .comment-card--reply {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .comment-card--reply {
+    margin-left: 0;
+  }
+}

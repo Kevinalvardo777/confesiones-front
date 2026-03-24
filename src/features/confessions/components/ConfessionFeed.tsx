@@ -35,7 +35,7 @@ function ConfessionFeed({ confessions, emptyMessage, communityNames, isLoading =
           key={confession.id}
           confession={confession}
           sectionName={communityNames[confession.communityId] ?? confession.communityId}
-          detailHref={appRoutes.confessionDetail(confession.communityId, confession.id)}
+          detailHref={appRoutes.confessionDetail(confession.communityId, confession.slug)}
           onVote={onVote}
           votePending={votePending}
         />

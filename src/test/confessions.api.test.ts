@@ -1,6 +1,18 @@
+import { vi } from 'vitest'
 import { authApi } from '@/features/auth/api/auth.api'
 import { confessionsApi } from '@/features/confessions/api/confessions.api'
 import { resetDb } from '@/shared/mocks/db'
+
+vi.mock('@/shared/constants/env', () => ({
+  appEnv: {
+    appName: 'Confesiones EC',
+    apiBaseUrl: '/api/v1',
+    useMocks: true,
+    mockDelayMs: 0,
+    siteUrl: '',
+    defaultOgImage: '/og-default.svg',
+  },
+}))
 
 describe('confessionsApi', () => {
   beforeEach(async () => {

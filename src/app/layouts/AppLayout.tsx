@@ -106,6 +106,21 @@ function AppLayout() {
       <main id="main-content" className="app-layout__content" tabIndex={-1}>
         <Outlet />
       </main>
+
+      <nav className="app-layout__bottom-nav surface-panel" aria-label="Navegacion rapida movil">
+        {navLinks.map((link) => (
+          <NavLink
+            key={`mobile-${link.to}`}
+            to={link.to}
+            end={link.to === appRoutes.home}
+            className={({ isActive }) =>
+              `app-layout__bottom-link${isActive ? ' app-layout__bottom-link--active' : ''}`
+            }
+          >
+            {link.label}
+          </NavLink>
+        ))}
+      </nav>
     </div>
   )
 }

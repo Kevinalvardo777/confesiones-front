@@ -156,6 +156,7 @@
 .detail-sidebar {
   display: grid;
   gap: 20px;
+  align-content: start;
 }
 
 @media (max-width: 860px) {
@@ -166,14 +167,33 @@
 }
 
 @media (max-width: 760px) {
-  .confession-filters,
-  .confession-card__footer {
+  .confession-filters {
     grid-template-columns: 1fr;
     align-items: stretch;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .confession-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .confession-card__meta {
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+  }
+
+  .confession-card__footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .confession-filters__controls {
     justify-content: stretch;
+    gap: 10px;
   }
 
   .confession-filters__controls .molecule-field {
@@ -182,5 +202,39 @@
 
   .confession-filters__count {
     justify-self: start;
+  }
+
+  .confession-card__detail-link {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 560px) {
+  .confession-composer {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .confession-composer__copy h2 {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+    line-height: 1;
+  }
+
+  .confession-composer__copy p {
+    font-size: 0.94rem;
+  }
+
+  .detail-shell {
+    gap: 14px;
+  }
+
+  .detail-sidebar {
+    gap: 14px;
+  }
+
+  .confession-card__stars button {
+    width: 36px;
+    height: 36px;
   }
 }

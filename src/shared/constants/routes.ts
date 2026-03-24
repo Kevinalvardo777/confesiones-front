@@ -7,7 +7,7 @@ export const appRoutes = {
   register: '/auth/registro',
   guest: '/auth/invitado',
   sectionDetail: (sectionId: string) => `/comunidad/${sectionId}`,
-  confessionDetail: (sectionId: string, confessionId: string) =>
-    `/comunidad/${sectionId}/confesiones/${confessionId}`,
+  confessionDetail: (sectionId: string, confessionSlug: string) =>
+    `/comunidad/${sectionId}/confesiones/${confessionSlug}`,
   moderation: '/moderacion',
 }

@@ -6,7 +6,7 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { level: 1, name: /Historias anonimas/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Ranking' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Inicio' })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: 'Ranking' }).length).toBeGreaterThan(0)
+    expect(screen.getAllByRole('link', { name: 'Inicio' }).length).toBeGreaterThan(0)
   })
 })

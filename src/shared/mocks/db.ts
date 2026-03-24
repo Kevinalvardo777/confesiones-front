@@ -21,6 +21,7 @@ export interface MockSectionRecord {
 
 export interface MockConfessionRecord {
   id: string
+  slug: string
   sectionId: MockSectionRecord['id']
   alias: string
   content: string
@@ -114,6 +115,7 @@ function createSeedDatabase(): MockDatabase {
     confessions: [
       {
         id: 'conf-1',
+        slug: 'fantasma-de-fiec-conf-1',
         sectionId: 'espol',
         alias: 'Fantasma de FIEC',
         content: 'Me cambie de asiento todo el semestre para sentarme cerca de alguien y nunca me atrevi a hablarle.',
@@ -125,6 +127,7 @@ function createSeedDatabase(): MockDatabase {
       },
       {
         id: 'conf-2',
+        slug: 'cafe-24-7-conf-2',
         sectionId: 'espol',
         alias: 'Cafe 24/7',
         content: 'Entregue el proyecto final con el nombre provisional del archivo y el profesor penso que era conceptual.',
@@ -136,6 +139,7 @@ function createSeedDatabase(): MockDatabase {
       },
       {
         id: 'conf-3',
+        slug: 'pasillo-norte-conf-3',
         sectionId: 'ucg',
         alias: 'Pasillo Norte',
         content: 'Fingi que iba a una tutoria para encontrarme con mi ex y termine entrando de verdad a la tutoria.',
@@ -147,6 +151,7 @@ function createSeedDatabase(): MockDatabase {
       },
       {
         id: 'conf-4',
+        slug: 'sin-nombre-conf-4',
         sectionId: 'ucg',
         alias: 'Sin Nombre',
         content: 'Todo el curso cree que soy ordenado, pero mi tesis vive en una carpeta llamada cosas_importantes_final_final.',
@@ -158,6 +163,7 @@ function createSeedDatabase(): MockDatabase {
       },
       {
         id: 'conf-5',
+        slug: 'biblioteca-sur-conf-5',
         sectionId: 'udla',
         alias: 'Biblioteca Sur',
         content: 'Le recomende a medio salon una fuente academica y despues note que era un blog cualquiera.',

@@ -40,3 +40,14 @@
   color: var(--text-muted);
   max-width: 64ch;
 }
+
+@media (max-width: 760px) {
+  .page-stack {
+    gap: 16px;
+  }
+
+  .page-header {
+    padding: 16px;
+    gap: 8px;
+  }
+}
